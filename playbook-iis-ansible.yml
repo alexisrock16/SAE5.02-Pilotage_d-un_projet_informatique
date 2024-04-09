@@ -1,0 +1,16 @@
+- name: Deploiement et configuration fonction iis
+  hosts: all
+  tasks:
+    - name: Installer le role IIS
+      ansible.windows.win_feature:
+        name: Web-Server
+        state: present
+
+    - name: Redemarrer si besoin
+      ansible.windows.win_reboot:
+      when: ansible_pending_reboot is defined and ansible_pending_reboot
+
+    - name: Activer les fonctionnalites de gestion de contenu statique
+      ansible.windows.win_feature:
+        name: Web-Static-Content
+        state: present

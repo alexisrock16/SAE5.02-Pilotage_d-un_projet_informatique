@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Magasin en ligne </title>
+    <h1>Connection Status</h1>
+    <div id="status"></div>
+
+    <script>
+        // Fonction pour mettre à jour le statut de la connexion
+        function updateStatus(status) {
+            document.getElementById('status').innerText = status;
+        }
+
+        // Requete AJAX pour obtenir le statut de la connexion depuis le serveur local
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET', '/status', true); //variable fichier nginx.con
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState === XMLHttpRequest.DONE) {
+                if (xhr.status === 200) {     //reussi
+                    updateStatus(xhr.responseText);
+                } else {
+                    updateStatus('Unknown'); //si erreur
+                }
+            }
+        };
+        xhr.send(); 
+    </script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+        }
+        nav {
+            background-color: #f4f4f4;
+            padding: 10px;
+            text-align: center;
+        }
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        nav ul li {
+            display: inline;
+            margin-right: 10px;
+        }
+        nav ul li a {
+            color: #333;
+            text-decoration: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+        nav ul li a:hover {
+            background-color: #ddd;
+        }
+        section {
+            padding: 20px;
+        }
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Magasin en ligne</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="#">Accueil</a></li>
+            <li><a href="#">Produits</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </nav>
+    <section>
+        <h2>Nos produits</h2>
+        <p>Bienvenue dans notre magasin en ligne. Découvrez nos produits de qualité.</p>
+        <div class="product">
+            <h3>Produit 1</h3>
+            <p>Description du produit 1.</p>
+            <p>Prix : 20 €</p>
+        </div>
+        <div class="product">
+            <h3>Produit 2</h3>
+            <p>Description du produit 2.</p>
+            <p>Prix : 30 €</p>
+        </div>
+        <div class="product">
+            <h3>Produit 3</h3>
+            <p>Description du produit 3.</p>
+            <p>Prix : 25 €</p>
+        </div>
+    </section>
+    <footer>
+        <p>&copy; 2024 Magasin en ligne</p>
+    </footer>
+</body>
+</html>

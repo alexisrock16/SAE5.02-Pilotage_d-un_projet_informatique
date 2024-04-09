@@ -1,0 +1,14 @@
+---
+- name: Cree  utilisateur sur serveur Window
+  hosts: all
+  tasks:
+    - name: Créer l'utilisateur 'Professeur'
+      ansible.windows.win_user:
+        name: professeur
+        password: "Roanne42300!"
+        state: present
+        groups: Administrateurs  # Ajoutez l'user au groupe Administrateurs si besoin
+
+    - name: Redémarrer si nécessaire
+      ansible.windows.win_reboot:
+      when: ansible_pending_reboot is defined and ansible_pending_reboot

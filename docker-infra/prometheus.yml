@@ -7,7 +7,7 @@ scrape_configs:
       - targets: ['10.0.2.15:9090']
   - job_name: 'docker-host'
     static_configs:
-      - targets: ['host.docker.internal:9100'] # Remplacer par l'IP de votre serveur si nécessaire
+      - targets: ['host.docker.internal:9100'] # Remplacer  l'IP  serveur 
 
   - job_name: 'cadvisor'
     static_configs:
