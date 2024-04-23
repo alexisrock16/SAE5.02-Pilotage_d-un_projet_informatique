@@ -1,0 +1,35 @@
+README - Projet d'Automatisation d'Infrastructure
+Ce repository contient le code et la documentation projet d'automatisation d'infrastructure réalisé dans le cadre du cours de Pilotage d'un Projet Informatique à l'IUT de Roanne.
+
+Introduction
+Ce projet vise à automatiser le déploiement d'une infrastructure sur un serveur Windows 2019 en utilisant Vagrant, Ansible et Docker. L'objectif est de simplifier et d'accélérer la configuration d’une infrastructure sécurisée.
+
+Objectifs du Projet
+L'objectif principal est de déployer rapidement, de manière sécurisée et entièrement automatisée une infrastructure. Plus spécifiquement, les objectifs sont :
+
+Utiliser Vagrant pour le provisionnement d'une VM serveur Windows.
+Utiliser Ansible pour configurer les rôles DNS et Active Directory.
+Intégrer éventuellement Docker pour d'autres tâches.
+Déployer rapidement les infrastructures grâce à l'automatisation.
+GitHub
+Le travail est organisé en mode projet grâce à GitHub pour assurer un suivi précis de l'avancement. Vous pouvez trouver le repository ici.
+
+Technologies Utilisées
+Vagrant pour le provisionnement des VM.
+Ansible pour l'automatisation de la configuration.
+Docker pour la création de plusieurs instances, la supervision, le tableau de bord et l'hébergement de sites web.
+Windows Server 2019 avec une installation minimale, sur laquelle des composants seront ajoutés.
+VirtualBox pour la virtualisation.
+Déploiement Rapide
+Le déploiement de l’infrastructure est rapide et se fait en deux commandes, mais nécessite certains prérequis tels que Ansible, certains plugins, et la compatibilité avec une Ubuntu 20.04 !! Les commandes sont les suivantes :
+
+Vagrant up pour déployer le serveur Windows 2019 sur VirtualBox, ainsi que la configuration dans le playbook qui se lance automatiquement.
+docker-compose up -d pour lancer les conteneurs Docker.
+Configuration Détaillée
+Le projet est configuré à travers plusieurs fichiers :
+
+Vagrantfile : Télécharge une image Windows Server 2019, provisionnement de la VM, et exécution du playbook Ansible.
+Playbook_ansible.yml : Configuration des rôles DNS Active Directory et plus.
+docker-compose.yml : Configuration des conteneurs Docker pour Prometheus, Grafana, cAdvisor, et site NGINX.
+
+Un compte rendu world est disponible sur MOODLE pour comprendre en detail le projet..
